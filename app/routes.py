@@ -3,11 +3,12 @@ from flask import render_template, redirect, request
 
 
 @app.route('/', methods=['GET', 'POST'])
-def colours():
-    colours = []
+def select_colour():
+    selected_colour = []
     colour = request.form.get('colour')
-    colours.append(colour)
-    return render_template('index.html', title="Home", colours=colours)
+    selected_colour.append(colour)
+    pretty_selected_colour = selected_colour[0]
+    return render_template('index.html', title="Home", pretty_selected_colour=pretty_selected_colour)
 
  
 

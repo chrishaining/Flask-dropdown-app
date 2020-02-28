@@ -8,24 +8,42 @@
         <h2>The purpose of the app is to help me practise using dropdowns in forms.</h2>
     </div>
 
+
     <div class="row">
-        <h2>Colours: {{colours}}</h2>
+        <div class="col-sm-6">
+
+            <h2>Select colour</h2>
+            <form action="/" method="POST">
+                <select name="colour">
+                    <option disabled selected value> -- select an option -- </option>
+                     <option value="red" class="red">Red</option>
+                     <option value="blue" class="blue">Blue</option>
+                     <option value="yellow" class="yellow">Yellow</option>
+                     <option value="green" class="green">Green</option>
+                </select>
+        </div>
+        <div class="col-sm-6">
+            <button type="submit" class="btn btn-primary">Are you sure?</button>
+        </div>
+        </form>
     </div>
 
     <div class="row">
-        <h2>Add a colour</h2>
-        <form action="/" method="POST">
-            <label for="colour">Colour</label>
-            <select name="colour">
-                    <option disabled selected value> -- select an option -- </option>
-                     <option value="red">Red</option><br>
-                     <option value="blue">Blue</option><br>
-                     <option value="yellow">Yellow</option><br>
-                     <option value="green">Green</option><br>
-                </select>
-            <br>
-            <button type="submit" class="btn btn-primary" value="Add Colour">Add Colour</button>
-        </form>
+        <h2>Selected Colour: </h2>
+
+        {% if pretty_selected_colour == 'red' %}
+        <h3 class='red'>{{pretty_selected_colour}}</h3>
+
+        {% elif pretty_selected_colour == 'blue' %}
+        <h3 class='blue'>{{pretty_selected_colour}}</h3>
+
+        {% elif pretty_selected_colour == 'green' %}
+        <h3 class='green'>{{pretty_selected_colour}}</h3>
+
+        {% elif pretty_selected_colour == 'yellow' %}
+        <h3 class='yellow'>{{pretty_selected_colour}}</h3>
+
+        {% endif %}
     </div>
 
 
